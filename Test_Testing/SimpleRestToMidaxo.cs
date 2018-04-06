@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Midaxo.Event.Test.Client;
+using Midaxo.Event.Test.Client.MessageHandlers;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -23,10 +25,29 @@ namespace Test_Testing
 
         private CookieContainer cookies_;
         private HttpClient httpClient;
+        private MidaxoHttpClient midaxoHttpClient;
+
+        [SetUp]
+        public void TestSetup()
+        {
+            cookies_ = new CookieContainer();
+            HttpClientHandler handler = new HttpClientHandler()
+            {
+                CookieContainer = cookies_,
+                Proxy = new WebProxy(@"http://localhost:8888", false),
+                AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+            };
+
+            var handlersPipeline = new XSRFAuthMessageHandler(cookies_)
+            { InnerHandler = handler };
+
+            midaxoHttpClient = new MidaxoHttpClient(handlersPipeline);
+        }
 
         [Test]
         public async Task Auth_SignInAsync()
         {
+            var ccc = new Cookie("n1", "v1");
             HttpClient httpClient1 = new HttpClient()
             {
                 BaseAddress = new Uri(@"https://staging.midevxo.net")
@@ -142,28 +163,30 @@ namespace Test_Testing
         }
     }
 
-    public class MidaxoHttpClient : HttpClient
-    {
-        private HttpClientHandler _handler;
+    //public class MidaxoHttpClient : HttpClient
+    //{
+    //    private HttpClientHandler _handler;
 
-        public MidaxoHttpClient() : this(new HttpClientHandler() { CookieContainer = new CookieContainer(),
-                                                                   AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip}) { }
+    //    public MidaxoHttpClient() : this(new HttpClientHandler() { CookieContainer = new CookieContainer(),
+    //                                                               AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip}) { }
 
-        public MidaxoHttpClient(HttpMessageHandler handler) : base(handler, true)
-        {
-            _handler = (HttpClientHandler) handler;
+    //    public MidaxoHttpClient(HttpMessageHandler handler) : base(handler, true)
+    //    {
+    //        _handler = (HttpClientHandler) handler;
 
-            DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            DefaultRequestHeaders.Connection.Add("keep-alive");
-            DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
-            DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("deflate"));
-        }
+    //        DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    //        DefaultRequestHeaders.Connection.Add("keep-alive");
+    //        DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
+    //        DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("deflate"));
+    //    }
 
-        public CookieContainer Cookie { get => _handler.CookieContainer; }
+    //    public CookieContainer Cookie { get => _handler.CookieContainer; }
 
-        public override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-            return await base.SendAsync(request, cancellationToken);
-        }
-    }
+    //    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    //    {
+    //        Task<HttpResponseMessage> res = base.SendAsync(request, cancellationToken);
+    //        return res;
+    //        //return base.SendAsync(request, cancellationToken);
+    //    }
+    //}
 }
