@@ -1,4 +1,4 @@
-﻿namespace Midaxo.Event.Dto
+﻿namespace Midaxo.Event.Test.Dto
 {
     public enum EventType : byte
     {

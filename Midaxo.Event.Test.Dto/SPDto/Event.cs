@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Midaxo.Event.Dto.SPDto
+namespace Midaxo.Event.Test.Dto.SPDto
 {
 
     public class Event

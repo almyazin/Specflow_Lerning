@@ -1,4 +1,4 @@
-﻿using Midaxo.Event.Dto;
+﻿using Midaxo.Event.Test.Dto;
 using Midaxo.Event.Test.Client;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;

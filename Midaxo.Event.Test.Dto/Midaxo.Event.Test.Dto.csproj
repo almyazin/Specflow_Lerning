@@ -7,8 +7,8 @@
     <ProjectGuid>{5209FA6C-B5BF-4024-8A5A-FBD899996149}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Midaxo.Event.Dto</RootNamespace>
-    <AssemblyName>Midaxo.Event.Dto</AssemblyName>
+    <RootNamespace>Midaxo.Event.Test.Dto</RootNamespace>
+    <AssemblyName>Midaxo.Event.Test.Dto</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

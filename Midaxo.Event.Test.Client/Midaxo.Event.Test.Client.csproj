@@ -61,11 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Midaxo.Event.SPDto\Midaxo.Event.Dto.csproj">
+    <ProjectReference Include="..\Midaxo.Event.Test.Dto\Midaxo.Event.Test.Dto.csproj">
       <Project>{5209fa6c-b5bf-4024-8a5a-fbd899996149}</Project>
-      <Name>Midaxo.Event.Dto</Name>
+      <Name>Midaxo.Event.Test.Dto</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

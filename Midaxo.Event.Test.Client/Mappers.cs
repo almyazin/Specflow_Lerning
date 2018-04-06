@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Midaxo.Event.Dto;
+using Midaxo.Event.Test.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;

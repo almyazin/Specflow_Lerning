@@ -1,5 +1,5 @@
-﻿using Midaxo.Event.Dto;
-using Midaxo.Event.Test.Client.MessageHandlers;
+﻿using Midaxo.Event.Test.Client.MessageHandlers;
+using Midaxo.Event.Test.Dto;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

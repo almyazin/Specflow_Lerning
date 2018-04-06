@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Midaxo.Event.Dto
+namespace Midaxo.Event.Test.Dto
 {
     public class ProcessMembership
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Midaxo.Event.Dto.SPDto
+namespace Midaxo.Event.Test.Dto.SPDto
 {
-    public class Task
+    public class Project
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -15,11 +15,10 @@ namespace Midaxo.Event.Dto.SPDto
         public int Editor { get; set; }
         public DateTime Modified { get; set; }
         public Guid Guid { get; set; }
-        public int ChildOrder { get; set; }
-        public int ParentId { get; set; }
-        public IEnumerable<int> Responsible { get; set; }
-        public int? TaskType { get; set; }
-        public bool IsRecycled { get; set; }
-        public int Role { get; set; }
+        public int ProjectType { get; set; }
+        public bool Archived { get; set; }
+        public string ProjectURL { get; set; }
+        public int? ParentId { get; set; }
+        public int? OwnerId { get; set; }
     }
 }
