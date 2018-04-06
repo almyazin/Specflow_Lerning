@@ -62,7 +62,7 @@
       <Project>{5209FA6C-B5BF-4024-8A5A-FBD899996149}</Project>
       <Name>Midaxo.Event.Dto</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Midaxo.Event.Test.HttpClient\Midaxo.Event.Test.Client.csproj">
+    <ProjectReference Include="..\Midaxo.Event.Test.Client\Midaxo.Event.Test.Client.csproj">
       <Project>{7e49dcf6-bd64-41c4-9c83-dfbc43dac9dc}</Project>
       <Name>Midaxo.Event.Test.Client</Name>
     </ProjectReference>
